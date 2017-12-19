@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Friendly Chat Application </h1>
+  <h2> Sign Up!!
+    <a [routerLink]="['/user-create']" class="btn btn-default btn-lg">
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+    </a>
+  </h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td><a [routerLink]="['/user-details', user._id]">Show Detail</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
