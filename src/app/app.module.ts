@@ -10,6 +10,9 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserCreateComponent } from './user-create/user-create.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 
+import {ContactCreateComponent} from './contact-create/contact-create.component';
+import {ContactComponent} from './contact/contact.component';
+
 const appRoutes: Routes = [
   {
     path: 'users',
@@ -34,6 +37,16 @@ const appRoutes: Routes = [
   { path: '',
     redirectTo: '/users',
     pathMatch: 'full'
+  },
+  {
+    path: 'contacts',
+    component: ContactComponent,
+    data: { title: 'Contact List' }
+  },
+  {
+    path: 'contact-create',
+    component: ContactCreateComponent,
+    data: { title: 'Create Contact' }
   }
 ];
 @NgModule({
@@ -42,7 +55,9 @@ const appRoutes: Routes = [
     UserComponent,
     UserDetailComponent,
     UserCreateComponent,
-    UserEditComponent
+    UserEditComponent,
+    ContactCreateComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

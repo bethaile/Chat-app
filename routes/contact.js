@@ -1,43 +1,43 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var User = require('../models/User.js');
+var Contact = require('../models/Contact.js');
 
-/* GET ALL USERS */
+/* GET ALL ContactS */
 router.get('/', function(req, res, next) {
-  User.find(function (err, products) {
+  Contact.find(function (err, products) {
     if (err) return next(err);
     res.json(products);
   });
 });
 
-/* GET SINGLE USER BY ID */
+/* GET SINGLE Contact BY ID */
 router.get('/:id', function(req, res, next) {
-  User.findById(req.params.id, function (err, post) {
+  Contact.findById(req.params.id, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
 });
 
-/* SAVE USER */
+/* SAVE Contact */
 router.post('/', function(req, res, next) {
-  User.create(req.body, function (err, post) {
+  Contact.create(req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
 });
 
-/* UPDATE USER */
+/* UPDATE Contact */
 router.put('/:id', function(req, res, next) {
-  User.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
+  Contact.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
 });
 
-/* DELETE USER */
+/* DELETE Contact */
 router.delete('/:id', function(req, res, next) {
-  User.findByIdAndRemove(req.params.id, req.body, function (err, post) {
+  Contact.findByIdAndRemove(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
