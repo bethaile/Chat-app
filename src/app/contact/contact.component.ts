@@ -1,4 +1,5 @@
-import {Component} from '@angular/core'
+import {Component} from '@angular/core';
+import {HttpClient} from '@angular/common/http'
 
 @Component(
     {
@@ -9,5 +10,14 @@ import {Component} from '@angular/core'
 )
 export class ContactComponent
 {
+    contacts: any;
 
+  constructor(private http: HttpClient) { }
+
+  ngOnInit() {
+    this.http.get('/contact').subscribe(data => {
+      console.log(data);
+      this.contacts = data;
+    });
+  }
 }

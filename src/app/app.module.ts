@@ -12,6 +12,7 @@ import { UserEditComponent } from './user-edit/user-edit.component';
 
 import {ContactCreateComponent} from './contact-create/contact-create.component';
 import {ContactComponent} from './contact/contact.component';
+import {ContactDetailComponent} from './contact-detail/contact-detail.component';
 
 const appRoutes: Routes = [
   {
@@ -47,6 +48,11 @@ const appRoutes: Routes = [
     path: 'contact-create',
     component: ContactCreateComponent,
     data: { title: 'Create Contact' }
+  },
+  {
+    path: 'contact-details/:id',
+    component: ContactDetailComponent,
+    data: { title: 'Contact Details' }
   }
 ];
 @NgModule({
@@ -57,7 +63,8 @@ const appRoutes: Routes = [
     UserCreateComponent,
     UserEditComponent,
     ContactCreateComponent,
-    ContactComponent
+    ContactComponent,
+    ContactDetailComponent
   ],
   imports: [
     BrowserModule,

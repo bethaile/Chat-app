@@ -1,7 +1,7 @@
 <div class="container">
     <h1> Add Contact </h1>
-    <p> 
-        Enter contact user <input type="text" >
-        <button>Add Contact</button>
-    </p>
+    <form (ngSubmit)="saveContact()" #contactForm="ngForm">
+        Enter contact user <input type="text" [(ngModel)]="contact.userName" name="userName" required>
+        <button type="submit">Add Contact</button> 
+    </form>
 </div>
