@@ -5,8 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-contact-detail',
   templateUrl: './contact-detail.component.html',
-  styleUrls: ['./contact-detail.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./contact-detail.component.css']
 })
 export class ContactDetailComponent implements OnInit
 {
@@ -20,6 +19,7 @@ export class ContactDetailComponent implements OnInit
 
   getContactDetail(id) {
     this.http.get('/contact/'+id).subscribe(data => {
+      console.log("data in getContactDetail: "+data);
       this.contact = data;
     });
   }
