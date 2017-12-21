@@ -1,7 +1,7 @@
 import {Directive, ElementRef, Input, OnInit} from '@angular/core';
 
 @Directive({selector: '[changeColor]'})
-export class ChangeSizeDirective implements OnInit
+export class ChangeColorDirective implements OnInit
 {
     @Input() changeColor: String;
 

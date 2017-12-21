@@ -17,8 +17,9 @@ import {ContactDetailComponent} from './contact-detail/contact-detail.component'
 import {GetAllUserService} from './services/get-all-user.service';
 import {GetAllContactService} from './services/get-all-contact.service'
 
-import {ChangeSizeDirective} from './directives/change-color.directive';
-import {ContactCountPipeDirective} from './directives/contact-count-pipe.directive';
+//import {ChangeColorDirective} from './directives/change-color.directive';
+//import {ContactCountPipeDirective} from './directives/contact-count-pipe.directive';
+import {SharedModule} from './shared-module/shared.module'
 
 const appRoutes: Routes = [
   {
@@ -70,9 +71,9 @@ const appRoutes: Routes = [
     UserEditComponent,
     ContactCreateComponent,
     ContactComponent,
-    ContactDetailComponent,
-    ChangeSizeDirective,
-    ContactCountPipeDirective
+    ContactDetailComponent//,
+    //ChangeColorDirective,
+    //ContactCountPipeDirective
   ],
   imports: [
     BrowserModule,
@@ -81,9 +82,10 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
-    )
+    ),
+    SharedModule
   ],
-  exports: [ChangeSizeDirective, ContactCountPipeDirective],
+  exports: [],
   providers: [GetAllUserService, GetAllContactService],
   bootstrap: [AppComponent]
 })

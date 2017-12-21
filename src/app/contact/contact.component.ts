@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {HttpClient} from '@angular/common/http'
-import {ChangeSizeDirective} from '../directives/change-color.directive'
+//import {ChangeColorDirective} from '../directives/change-color.directive'
 
 @Component(
     {
