@@ -15,6 +15,8 @@ import {ContactComponent} from './contact/contact.component';
 import {ContactDetailComponent} from './contact-detail/contact-detail.component';
 
 const appRoutes: Routes = [
+  
+
   {
     path: 'users',
     component: UserComponent,

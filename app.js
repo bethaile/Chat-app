@@ -8,6 +8,50 @@ var user = require('./routes/user');
 var contact = require('./routes/contact');
 var app = express();
 
+//////////////////
+var app1 = express();
+var server1 = require('http').createServer(app1);
+var io = require('socket.io').listen(server1);
+users = [];
+connections = [];
+server1.listen(3005 );
+app1.get('/', function(req, res){
+    res.sendFile(__dirname + '/chat.html');
+});
+
+
+io.sockets.on ('connection', function(socket){
+  connections.push(socket);
+  console.log('connected : % sockets connected', connections.length);
+
+//Disconnect
+  socket.on('disconnect', function(data){
+      if(!socket.username) return;
+      users.splice(users.indexOf(socket.username), 1);
+      updateUsernames();
+      connections.splice(connections.indexOf(socket), 1);
+      console.log('Disconnected: %s sockets connected', connections.length)
+  });
+
+  socket.on ('send message', function(data){
+      io.sockets.emit('new message', {msg:data, user: socket.username});
+  });
+
+  socket.on('new user', function(data, callback){
+      callback(true);
+      socket.username = data;
+      
+      users.push(socket.username);
+      updateUsernames();
+  })
+
+  function updateUsernames(){
+      io.sockets.emit('get users', users);
+  }
+  
+});
+/////////////
+
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 mongoose.connect('mongodb://localhost/chat-app', { useMongoClient: true, promiseLibrary: require('bluebird') })
