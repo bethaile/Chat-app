@@ -50,9 +50,9 @@ export class ContactCreateComponent
     {
       for(let c of this.getAllContactService.contacts)
       {
-        console.log("check for user (checkContact): "+ this.checkUser);
-        console.log("contact.userName: "+c.userName+"; this.contactValue: "+this.contactValue);
-        if(c.userName == this.contactValue) // Check if it's already a contact
+        console.log("check for user (checkContact): "+ this.checkContact);
+        console.log("contact.contactUserName: "+c.contactUserName+"; this.contactValue: "+this.contactValue);
+        if(c.contactUserName == this.contactValue) // Check if it's already a contact
         {
           console.log('Contact Already exist dont need to add contact again');
           this.checkContact = true;

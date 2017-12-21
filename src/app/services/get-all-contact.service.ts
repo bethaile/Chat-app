@@ -12,14 +12,14 @@ export class GetAllContactService implements OnInit
     }
 
   ngOnInit() {
-    this.http.get('/user').subscribe(data => {
+    this.http.get('/contact').subscribe(data => {
       console.log(data);
       this.contacts = data;
     });
   }
   getAllContacts()
   {
-      this.http.get('/user').subscribe(data => {
+      this.http.get('/contact').subscribe(data => {
       console.log(data);
       this.contacts = data;
     });

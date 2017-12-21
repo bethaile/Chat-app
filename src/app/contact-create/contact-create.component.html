@@ -6,6 +6,7 @@
     <p>Contact: {{contact|json}}</p>
     <form (ngSubmit)="saveContact()" #contactForm="ngForm">
         Enter contact user <input type="text" [(ngModel)]="contact.userName" name="userName" 
+        [(ngModel)]="contact.contactUserName" name="contactUserName" 
         (input)="contactValue=$event.target.value" required>
         <p *ngIf="checkContact"> {{errorToAddContact}}</p>
         <p *ngIf="!checkUser">{{errorUserNotExist}}</p>
