@@ -9,8 +9,9 @@
     
     <span [changeColor]='color' >List Contact: </span>
     <p *ngIf="contacts">
-    {{contacts}}
-    {{contacts[0]?.userName}} </p>
+      Total Contact: {{contacts|countAll}}
+      <!-- {{contacts[0]?.userName}} -->
+    </p>
     <p *ngFor="let contact of contacts">{{contact?.userName}}</p>
     
   </div>
