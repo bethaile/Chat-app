@@ -6,7 +6,8 @@
     </a>
   </h2>
   <div>
-    
+    {{timeGetRequestService.getTime}}
+    <br />
     <span [changeColor]='color' >List Contact: </span>
     <p *ngIf="contacts">
       Total Contact: {{contacts|countAll}}

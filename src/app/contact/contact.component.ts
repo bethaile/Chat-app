@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {HttpClient} from '@angular/common/http'
+import { TimeGetRequestService } from '../services/time-get-request.service';
 //import {ChangeColorDirective} from '../directives/change-color.directive'
+
 
 @Component(
     {
@@ -14,7 +16,12 @@ export class ContactComponent
     contacts: any;
     color: String = 'cyan';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public timeGetRequestService: TimeGetRequestService) 
+  {
+    console.log(this.timeGetRequestService);
+   }
+  
+  
 
   ngOnInit() {
     this.http.get('/contact').subscribe(data => {

@@ -15,11 +15,15 @@ import {ContactComponent} from './contact/contact.component';
 import {ContactDetailComponent} from './contact-detail/contact-detail.component';
 
 import {GetAllUserService} from './services/get-all-user.service';
-import {GetAllContactService} from './services/get-all-contact.service'
+import {GetAllContactService} from './services/get-all-contact.service';
+
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {TimingInterceptor} from './interceptor/timing.interceptor'
 
 //import {ChangeColorDirective} from './directives/change-color.directive';
 //import {ContactCountPipeDirective} from './directives/contact-count-pipe.directive';
 import {SharedModule} from './shared-module/shared.module'
+import { TimeGetRequestService } from './services/time-get-request.service';
 
 const appRoutes: Routes = [
   {
@@ -86,7 +90,9 @@ const appRoutes: Routes = [
     SharedModule
   ],
   exports: [],
-  providers: [GetAllUserService, GetAllContactService],
+  providers: [GetAllUserService, GetAllContactService, TimeGetRequestService, {
+              provide: HTTP_INTERCEPTORS, useClass: TimingInterceptor, multi: true,
+              }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
