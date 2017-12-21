@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {HttpClient} from '@angular/common/http'
+import {ChangeSizeDirective} from '../directives/change-size.directive'
 
 @Component(
     {
@@ -11,6 +12,7 @@ import {HttpClient} from '@angular/common/http'
 export class ContactComponent
 {
     contacts: any;
+    color: String = 'cyan';
 
   constructor(private http: HttpClient) { }
 

@@ -17,6 +17,8 @@ import {ContactDetailComponent} from './contact-detail/contact-detail.component'
 import {GetAllUserService} from './services/get-all-user.service';
 import {GetAllContactService} from './services/get-all-contact.service'
 
+import {ChangeSizeDirective} from './directives/change-size.directive'
+
 const appRoutes: Routes = [
   {
     path: 'users',
@@ -67,7 +69,8 @@ const appRoutes: Routes = [
     UserEditComponent,
     ContactCreateComponent,
     ContactComponent,
-    ContactDetailComponent
+    ContactDetailComponent,
+    ChangeSizeDirective
   ],
   imports: [
     BrowserModule,
@@ -78,6 +81,7 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
+  exports: [ChangeSizeDirective],
   providers: [GetAllUserService, GetAllContactService],
   bootstrap: [AppComponent]
 })
