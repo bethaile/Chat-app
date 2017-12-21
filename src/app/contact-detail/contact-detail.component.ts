@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
+import {GetAllUserService} from '../services/get-all-user.service'
 
 @Component({
   selector: 'app-contact-detail',
@@ -11,7 +12,8 @@ export class ContactDetailComponent implements OnInit
 {
     contact = {};
 
-  constructor(private router: Router, private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(private router: Router, private route: ActivatedRoute
+              , private http: HttpClient, private getAllUserService: GetAllUserService) { }
 
   ngOnInit() {
     this.getContactDetail(this.route.snapshot.params['id']);

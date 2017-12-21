@@ -1,7 +1,14 @@
 <div class="container">
     <h1> Add Contact </h1>
+    <p>User: {{getAllUserService.users|json}}</p>
+    <!-- <p>UserName: {{getAllUserService.users[0].userName}}</p> -->
+    
+    <p>Contact: {{contact|json}}</p>
     <form (ngSubmit)="saveContact()" #contactForm="ngForm">
-        Enter contact user <input type="text" [(ngModel)]="contact.userName" name="userName" required>
+        Enter contact user <input type="text" [(ngModel)]="contact.userName" name="userName" 
+        (input)="contactValue=$event.target.value" required>
+        <p *ngIf="checkContact"> {{errorToAddContact}}</p>
+        <p *ngIf="!checkUser">{{errorUserNotExist}}</p>
         <button type="submit">Add Contact</button> 
     </form>
 </div>

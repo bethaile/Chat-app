@@ -1,6 +1,8 @@
 <div class="container">
         {{ contact }}
     <h1>{{contact.userName}}</h1>
+    <p>Users: {{getAllUserService.users|json}}</p>
+    <p *ngFor="let user of getAllUserService.users">{{user.userName}}</p>
 </div>
       <div class="row">
         <div class="col-md-12">

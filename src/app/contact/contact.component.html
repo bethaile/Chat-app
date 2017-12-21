@@ -6,8 +6,13 @@
     </a>
   </h2>
   <div>
+    
+    List Contact:
+    <p *ngIf="contacts">
     {{contacts}}
-    {{contacts[0].userName}}
+    {{contacts[0]?.userName}} </p>
+    <p *ngFor="let contact of contacts">{{contact?.userName}}</p>
+    
   </div>
   <!--<table class="table">
     <thead>

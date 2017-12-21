@@ -14,6 +14,9 @@ import {ContactCreateComponent} from './contact-create/contact-create.component'
 import {ContactComponent} from './contact/contact.component';
 import {ContactDetailComponent} from './contact-detail/contact-detail.component';
 
+import {GetAllUserService} from './services/get-all-user.service';
+import {GetAllContactService} from './services/get-all-contact.service'
+
 const appRoutes: Routes = [
   {
     path: 'users',
@@ -75,7 +78,7 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [GetAllUserService, GetAllContactService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
