@@ -1,11 +1,16 @@
 <div class="container">
-        {{ contact }}
+       
     <h1>{{contact.userName}}</h1>
 </div>
       <div class="row">
         <div class="col-md-12">
           <a [routerLink]="['/user-edit', contact._id]" class="btn btn-success">EDIT</a>
           <button class="btn btn-danger" type="button" (click)="deleteContact(contact._id)">DELETE</button>
+          
+          <a [routerLink]="['/chat']" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-envelope" aria-hidden="true"> START CHATTING</span>
+          </a>
+
         </div>
       </div>
       
