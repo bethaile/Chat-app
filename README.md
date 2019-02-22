@@ -9,7 +9,7 @@ the follwoing steps.
   
  Step 2. npm start
     
-The the Angular application will start port 3000 and the socektio is running on port 4000 internally.
+The the Angular application will start port 3000 and the socketio is running on port 4000 internally.
     
 To use the chat service the suer should be registred first then log in to the system with the user crednetials username and password. The chat is at the moment used in rooms. Hence once logged in the user can acess the pages the are for chatting and adding contacts.
 
